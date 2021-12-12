@@ -11,6 +11,7 @@
     "build:pdf": "md-to-pdf contents/*.md",
     "build:dist": "mv contents/*.pdf output",
     "build:concat": "node index.js",
+    "build:github-action": "run-s build:pdf build:dist build:concat",
     "build": "run-s clean build:pdf build:dist build:concat"
   },
   "devDependencies": {

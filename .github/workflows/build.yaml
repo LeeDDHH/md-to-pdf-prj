@@ -9,9 +9,13 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+      with:
+        node-version: '14'
+    - name: npm install
+      run: npm install
     - name: build pdf
-      run: npm run build
+      run: npm run build:github-action
     - uses: actions/upload-artifact@master
       with:
         name: build-pdf
-        path: ./book.pdf
+        path: ./pdf/book.pdf
