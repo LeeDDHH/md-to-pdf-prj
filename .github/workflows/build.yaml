@@ -1,0 +1,17 @@
+name: CI
+
+on: [pull_request]
+
+jobs:
+  build:
+    name: build review pdf
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: build pdf
+      run: npm run build
+    - uses: actions/upload-artifact@master
+      with:
+        name: build-pdf
+        path: ./book.pdf
