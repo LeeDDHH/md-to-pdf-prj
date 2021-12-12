@@ -10,7 +10,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: build pdf
-      run: npm run build
+      run: npm run build:github-action
     - uses: actions/upload-artifact@master
       with:
         name: build-pdf
