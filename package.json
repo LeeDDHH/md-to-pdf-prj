@@ -1,0 +1,18 @@
+{
+  "name": "md-to-pdf-prj",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "build:pdf": "md-to-pdf contents/*.md",
+    "build:dist": "mv contents/*.pdf output",
+    "build:concat": "node index.js",
+    "build": "run-s build:pdf build:dist build:concat"
+  },
+  "devDependencies": {
+    "md-to-pdf": "^5.0.1",
+    "npm-run-all": "^4.1.5",
+    "pdf-merger-js": "^3.2.1"
+  }
+}
