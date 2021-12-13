@@ -11,12 +11,14 @@
     "build:pdf": "md-to-pdf contents/*.md",
     "build:dist": "mv contents/*.pdf output",
     "build:concat": "node index.js",
-    "build:github-action": "run-s build:pdf build:dist build:concat",
-    "build": "run-s clean build:pdf build:dist build:concat"
+    "build:pageNumber": "node pageNumber.js",
+    "build:github-action": "run-s build:pdf build:dist build:concat build:pageNumber",
+    "build": "run-s clean build:pdf build:dist build:concat build:pageNumber"
   },
   "devDependencies": {
     "md-to-pdf": "^5.0.1",
     "npm-run-all": "^4.1.5",
+    "pdf-lib": "^1.17.1",
     "pdf-merger-js": "^3.2.1"
   }
 }

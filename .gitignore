@@ -137,5 +137,6 @@ dist
 # Project
 output/*.pdf
 pdf/*.pdf
+output.pdf
 
 # End of https://www.toptal.com/developers/gitignore/api/node
