@@ -10,8 +10,8 @@
     "clean": "run-s clean:output clean:pdf",
     "build:pdf": "md-to-pdf contents/*.md",
     "build:dist": "mv contents/*.pdf output",
-    "build:concat": "node index.js",
-    "build:pageNumber": "node pageNumber.js",
+    "build:concat": "node scripts/index.js",
+    "build:pageNumber": "node scripts/pageNumber.js",
     "build:github-action": "run-s build:pdf build:dist build:concat build:pageNumber",
     "build": "run-s clean build:pdf build:dist build:concat build:pageNumber"
   },
