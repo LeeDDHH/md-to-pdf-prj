@@ -1,19 +1,20 @@
 const path = require("path");
 const fs = require("fs");
 const PDFMerger = require('pdf-merger-js');
+const CONST = require('./const');
+
+const outputPath = path.join(CONST.OUTPUT_PATH);
+const bookOutputpath = path.join(CONST.BOOK_PDF_PATH);
 
 var merger = new PDFMerger();
 
-const OUTPUT_PATH = './output';
-const RESULT_PDF_PATH = './pdf/book.pdf';
-
-const outputPdfs = fs.readdirSync(OUTPUT_PATH)
+const outputPdfs = fs.readdirSync(outputPath)
   .filter(file => {
-    return fs.statSync(path.join(OUTPUT_PATH, file)).isFile()
+    return fs.statSync(path.join(outputPath, file)).isFile()
       && /.*\.pdf$/.test(file)
   })
   .map(fileName => {
-    return path.join(OUTPUT_PATH, fileName)
+    return path.join(outputPath, fileName)
   });
 
 const mergerAdd = () => {
@@ -23,5 +24,5 @@ const mergerAdd = () => {
 (async () => {
   mergerAdd();
 
-  await merger.save(RESULT_PDF_PATH);
+  await merger.save(bookOutputpath);
 })()
