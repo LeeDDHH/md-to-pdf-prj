@@ -1,0 +1,7 @@
+@font-face {
+font-family: 'use-NotoSerifJP-Regular';
+  src: url('fonts/NotoSerifJP-Regular.otf') format('opentype');
+}
+body{
+  font-family: "use-NotoSerifJP-Regular";
+}
