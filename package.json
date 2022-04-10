@@ -12,8 +12,9 @@
     "build:dist": "mv contents/markdown/*.pdf output",
     "build:concat": "node scripts/index.js",
     "build:pageNumber": "node scripts/pageNumber.js",
-    "build:github-action": "run-s build:pdf build:dist build:concat build:pageNumber",
-    "build": "run-s clean build:pdf build:dist build:concat build:pageNumber"
+    "build:concat-cover": "rm pdf/book.pdf && cp contents/cover/*.pdf pdf && node scripts/concatCover.js",
+    "build:github-action": "run-s build:pdf build:dist build:concat build:pageNumber build:concat-cover",
+    "build": "run-s clean build:pdf build:dist build:concat build:pageNumber build:concat-cover"
   },
   "devDependencies": {
     "md-to-pdf": "^5.0.1",
